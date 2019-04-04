@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Music bands</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style type="text/css">
+        body {margin: 1em 2em auto 2em; max-width: 50em;}
+        .header {background-color: lightgrey; padding: 1em;}
+        .black-url {color: black; text-decoration: none}
+        li {margin-bottom: 1em;}
+        img {margin-right: 1em; text-decoration: none!Important;}
+        button {margin-top: 1em}
+        label {margin-top: 1em}
+    </style>
+</head>
+<body>
+
+    <a class="black-url" href="/">
+    <h2 class="header">Music bands</h2></a>
+    <a href="/">Back to list</a>
+    <p><h4>Add new band</h4>
+
+    <p><form action="/post" method="post" th:object="${newBand}">
+        <div class="form-group" >
+            <label>Name</label>
+            <input type="text" th:field="*{name}" name="name" class="form-control" placeholder="Name" required>
+            <label>Genere</label>
+            <select name="genere" th:field="*{genere}" class="form-control" required>
+                <option th:each="genere: ${generes}" th:value="${genere.name()}" th:text="${genere.getGenereName()}"></option>
+            </select>
+            <label>Date of foundation</label>
+            <input type="date" th:field="*{yearOfFoundation}" name="yearOfFoundation" class="form-control" placeholder="dd-mm-yyyy" required>
+            <label>Members</label>
+            <textarea th:field="*{members}" name="members" class="form-control" id="validationTextarea1" placeholder="" required></textarea>
+            <label>Past members</label>
+            <textarea th:field="*{pastMembers}" name="pastMembers" class="form-control" id="validationTextarea2" placeholder=""></textarea>
+            <label>Photo</label>
+            <input th:field="*{image}" type="url" name="url" class="form-control" placeholder="Please paste a link">
+            <small class="form-text text-muted">Recommended image proportions: 1:1 (square).</small>
+            <button type="submit" class="btn btn-primary">Dodaj</button>
+
+        </div>
+    </form>
+
+</body>
+</html>

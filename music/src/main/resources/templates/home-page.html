@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Music bands</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style type="text/css">
+        body {margin: 1em 2em auto 2em; max-width: 50em;}
+        .header {background-color: lightgrey; padding: 1em;}
+        .list-unstyled {padding: 0.5em}
+        .black-url {color: black; text-decoration: none}
+        li {margin-bottom: 1em;}
+        img {margin-right: 1em; text-decoration: none!Important;}
+        img:hover {text-decoration: none!Important;}
+    </style>
+</head>
+<body>
+
+    <a class="black-url" href="/">
+    <h2 class="header">Music bands</h2></a>
+    <a href="/add">Add band</a><p>
+
+    <ul class="list-unstyled">
+        <li th:each="band : ${bands}">
+            <a th:href="'/band/' + ${band.id}">
+            <img th:src="${(band.image != null && !#strings.isEmpty(band.image)) ? band.image : '//images2.imagebam.com/2f/cb/b2/bd89b61175528174.png'}" th:height="180px" th:width="180px" alt="foto" src=""/></a>
+            <a th:href="'/band/' + ${band.id}" th:text="${band.name}"></a>
+
+        </li>
+    </ul>
+
+</body>
+</html>

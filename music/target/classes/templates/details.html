@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Music bands</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style type="text/css">
+        body {margin: 1em 2em auto 2em; max-width: 50em;}
+        .header {background-color: lightgrey; padding: 1em;}
+        .black-url {color: black; text-decoration: none}
+        li {margin-bottom: 1em;}
+        img {margin-right: 1em; text-decoration: none!Important;}
+        button {margin-top: 1em}
+        th {vertical-align : middle;}
+        .bold {font-weight: bold}
+        span {font-weight: normal}
+    </style>
+</head>
+<body>
+
+    <a class="black-url" href="/">
+    <h2 class="header">Music bands</h2></a>
+    <a href="/">Back to list</a><p>
+
+    <p><h2 th:text="${band.name}">Band name</h2>
+    <a th:href="@{'/edit?id=' + ${band.id}}" th:text="Edit"></a><p></p>
+
+    <p class="bold">Members: <span th:text="${band.members}"></span>
+    <p class="bold">Past members: <span th:text="${band.pastMembers}"></span>
+    <p class="bold">Genere: <span th:text="${band.genere}"></span>
+    <p class="bold">Year of foundation: <span th:text="${#temporals.year(band.yearOfFoundation)}"></span>
+
+</body>
+</html>

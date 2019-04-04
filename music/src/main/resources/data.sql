@@ -1,0 +1,2 @@
+INSERT INTO music_band(name, genere, year_of_foundation, members, past_members, image)
+VALUES ('Linkin Park', 'ALTERNATIVE', '2000-01-01', 'Rob Bourdon, Brad Delson, Mike Shinoda, Dave Farrell, Joe Hahn','Chester Bennington (died in 2017)','http://thumbs2.imagebam.com/56/fa/c8/e9c7671183628424.jpg');
